@@ -21,7 +21,7 @@
         </div>
 
         <div class="menu-buttons">
-            <button class="btn btn-start" onclick="startGame()">START</button>
+            <button class="btn btn-start" onclick="alert('Starting Game...')">START</button>
             <button class="btn btn-wishboard" onclick="alert('Opening Wishboard...')">Wishboard</button>
         </div>
 
@@ -36,32 +36,6 @@
                     <p><b>Music:</b> Lo-fi Coffee Shop</p>
                 </div>
                 <button class="close-btn" onclick="toggleCredit()">Close</button>
-            </div>
-        </div>
-
-        <div id="gameplay-scene" class="hidden fixed inset-0 z-50">
-            <div id="bg-layer" class="absolute inset-0 bg-cover bg-center transition-all duration-500" 
-                 style="background-image: url('https://img2.pic.in.th/IMG_7826.md.jpeg');"></div>
-
-            <div class="absolute inset-0 flex justify-center items-end pb-20">
-                <img id="char-sprite" src="https://img2.pic.in.th/-182_20260411164509.md.png" 
-                     class="h-[80vh] object-contain drop-shadow-2xl transition-opacity duration-300">
-            </div>
-
-            <div class="absolute bottom-10 left-0 right-0 flex flex-col items-center px-4" onclick="nextDialogue()">
-                
-                <div id="name-tag" class="self-start ml-[10%] mb-[-10px] z-10 px-6 py-1 rounded-t-lg bg-[#7a5c48] text-white font-bold hidden">
-                    Character Name
-                </div>
-
-                <div class="w-full max-w-[1000px] bg-white/70 backdrop-blur-md rounded-2xl p-8 border-2 border-[#7a5c48]/20 shadow-xl cursor-pointer">
-                    <p id="dialogue-text" class="text-[#7a5c48] text-xl leading-relaxed drop-shadow-[0_1px_1px_rgba(255,255,255,1)]">
-                        ข้อความบรรยายจะปรากฏที่นี่...
-                    </p>
-                </div>
-            </div>
-
-            <div id="choice-container" class="absolute inset-0 flex flex-col justify-center items-center gap-4 bg-black/20 hidden">
             </div>
         </div>
     </div>
