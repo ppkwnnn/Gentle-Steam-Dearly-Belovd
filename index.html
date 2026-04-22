@@ -24,6 +24,19 @@
             <button class="btn btn-wishboard" onclick="alert('Opening Wishboard...')">Wishboard</button>
         </div>
 
+        <div id="game-screen">
+            <div id="character-layer">
+                <img id="character-img" src="" alt="character" style="display: none;">
+            </div>
+
+            <div id="dialogue-container">
+                <div id="name-tag" style="display: none;"></div>
+                <div id="dialogue-text"></div>
+                
+                <div id="choices-container"></div>
+            </div>
+        </div>
+
         <div id="creditOverlay" class="overlay" onclick="closeOverlay(event)">
             <div class="credit-card">
                 <h2>Special Thanks</h2>
@@ -38,7 +51,6 @@
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

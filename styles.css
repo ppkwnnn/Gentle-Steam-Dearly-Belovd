@@ -199,3 +199,77 @@ body, html {
         padding: 10px 15px;
     }
 }
+
+#character-layer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80%;
+    z-index: 5;
+}
+
+#character-img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* กล่องข้อความโปร่งใส 70% */
+#dialogue-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.7); 
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(122, 92, 72, 0.1);
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ตัวอักษรสี 7a5c48 และเงา */
+#dialogue-text {
+    color: #7a5c48;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-shadow: 0.5px 0.5px 0px #fff, 0px 0px 2px rgba(255,255,255,0.5);
+}
+
+/* Name Tag กรอบสี 7a5c48 */
+#name-tag {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    background: #7a5c48;
+    color: #ffffff;
+    padding: 6px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ตัวเลือก (Choices) */
+.choice-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #7a5c48;
+    border: 1px solid #7a5c48;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 0px #fff;
+    transition: all 0.2s;
+}
+
+.choice-btn:hover {
+    background: #7a5c48;
+    color: #fff;
+}
