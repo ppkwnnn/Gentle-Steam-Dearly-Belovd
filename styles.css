@@ -24,21 +24,159 @@ body, html {
     padding: 20px;
 }
 
-/* ... ก๊อปปี้ CSS ทั้งหมดที่คุณเขียนไว้มาใส่ต่อที่นี่ ... */
+/* --- Credit Button --- */
+.credit-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #8d7365;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.credit-btn:hover {
+    background-color: #fff;
+    transform: scale(1.1);
+}
+
+/* --- Logo --- */
+.logo-container {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 4s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+}
+
+/* --- Menu Buttons --- */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 220px;
+    z-index: 15;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    color: white;
+    display: inline-block;
+}
+
+.btn-start { background-color: #b18e77; }
+.btn-start:hover {
+    background-color: #9c7862;
+    transform: translateY(-2px);
+}
+
+.btn-wishboard { background-color: #ccb9ad; }
+.btn-wishboard:hover {
+    background-color: #bca89a;
+    transform: translateY(-2px);
+}
+
+/* --- Overlay & Credit Card --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(121, 92, 72, 0.3);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: 100;
+}
+
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.credit-card {
+    background-color: #efe0d4;
+    padding: 50px 30px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    color: #7a5c48;
+    transform: scale(0.8);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 .overlay.active .credit-card {
     transform: scale(1);
 }
 
+.credit-card h2 {
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+}
+
+.credit-content {
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.close-btn {
+    background-color: #7a5c48;
+    border: 1.5px solid #7a5c48;
+    padding: 8px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #efe0d4;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #5e4637;
+    color: white;
+}
+
+/* --- Mobile Responsive --- */
 @media (max-width: 600px) {
-    .logo-container {
-        max-width: 90%;
-    }
-    .menu-buttons {
-        width: 180px;
-    }
-    .btn {
-        font-size: 1rem;
-        padding: 10px 15px;
-    }
+    .logo-container { max-width: 90%; }
+    .menu-buttons { width: 180px; }
+    .btn { font-size: 1rem; padding: 10px 15px; }
 }
