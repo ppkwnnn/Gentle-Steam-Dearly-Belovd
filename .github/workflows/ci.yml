@@ -1,23 +1,29 @@
-name: CI
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: ["main"] # หรือชื่อ branch ที่คุณใช้
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Check file structure
-      run: |
-        echo "Checking project files..."
-        ls -la
-        
-    - name: Validate HTML
-      run: |
-        echo "Project ready for deployment"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # ใส่จุด ถ้าไฟล์ index.html อยู่หน้าแรกสุดของโปรเจกต์
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
