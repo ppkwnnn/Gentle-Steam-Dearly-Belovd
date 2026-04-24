@@ -72,6 +72,7 @@ function loadScene(sceneId) {
     document.getElementById('dialogueSection').classList.add('hidden');
     document.getElementById('choicesSection').classList.add('hidden');
     document.getElementById('nextButton').classList.add('hidden');
+    document.querySelector('.character-container').classList.remove('visible');
     
     // แสดงตามประเภทฉาก
     if (scene.type === 'narration') {
@@ -146,24 +147,28 @@ function displayChoices(choices) {
 function showNarration(text) {
     const narrationSection = document.getElementById('narrationSection');
     const dialogueSection = document.getElementById('dialogueSection');
-    const choicesSection = document.getElementById('choicesSection');
+    const characterContainer = document.querySelector('.character-container');
     
     document.getElementById('narrationText').textContent = text;
     
     narrationSection.classList.remove('hidden');
     dialogueSection.classList.add('hidden');
     choicesSection.classList.add('hidden');
+    characterContainer.classList.remove('visiblen');
+    choicesSection.classList.add('hidden');
 }
 
 // ฟังก์ชัน แสดง Dialogue
 function showDialogue(characterName, dialogueText) {
-    const narrationSection = document.getElementById('narrationSection');
-    const dialogueSection = document.getElementById('dialogueSection');
-    const choicesSection = document.getElementById('choicesSection');
+    const characterContainer = document.querySelector('.character-container');
     
     document.getElementById('characterName').textContent = characterName;
     document.getElementById('dialogueText').textContent = dialogueText;
     
+    narrationSection.classList.add('hidden');
+    dialogueSection.classList.remove('hidden');
+    choicesSection.classList.add('hidden');
+    characterContainer.classList.add('visible
     narrationSection.classList.add('hidden');
     dialogueSection.classList.remove('hidden');
     choicesSection.classList.add('hidden');
