@@ -147,6 +147,7 @@ function displayChoices(choices) {
 function showNarration(text) {
     const narrationSection = document.getElementById('narrationSection');
     const dialogueSection = document.getElementById('dialogueSection');
+    const choicesSection = document.getElementById('choicesSection');
     const characterContainer = document.querySelector('.character-container');
     
     document.getElementById('narrationText').textContent = text;
@@ -154,12 +155,14 @@ function showNarration(text) {
     narrationSection.classList.remove('hidden');
     dialogueSection.classList.add('hidden');
     choicesSection.classList.add('hidden');
-    characterContainer.classList.remove('visiblen');
-    choicesSection.classList.add('hidden');
+    characterContainer.classList.remove('visible');
 }
 
 // ฟังก์ชัน แสดง Dialogue
 function showDialogue(characterName, dialogueText) {
+    const narrationSection = document.getElementById('narrationSection');
+    const dialogueSection = document.getElementById('dialogueSection');
+    const choicesSection = document.getElementById('choicesSection');
     const characterContainer = document.querySelector('.character-container');
     
     document.getElementById('characterName').textContent = characterName;
@@ -168,10 +171,7 @@ function showDialogue(characterName, dialogueText) {
     narrationSection.classList.add('hidden');
     dialogueSection.classList.remove('hidden');
     choicesSection.classList.add('hidden');
-    characterContainer.classList.add('visible
-    narrationSection.classList.add('hidden');
-    dialogueSection.classList.remove('hidden');
-    choicesSection.classList.add('hidden');
+    characterContainer.classList.add('visible');
 }
 
 // ฟังก์ชัน จัดการการเลือก (ใช้กับ onclick ใน HTML)
