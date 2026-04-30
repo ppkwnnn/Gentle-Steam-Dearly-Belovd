@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Novel Game</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gentle Steam, Dearly Belov'd</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+
 <body>
 
-    <div class="game-container">
-        <button class="credit-btn" onclick="toggleCredit()" title="ดูเครดิต">?</button>
+<!-- MAIN MENU -->
+<div class="screen active" id="mainMenu">
 
-        <!-- Menu Screen -->
-        <div id="menuScreen" class="menu-screen">
-            <div class="logo-container">
-                <img src="https://img2.pic.in.th/-181_20260411152816.md.png" alt="Game Logo" class="logo">
-            </div>
+  <button class="credits-btn" onclick="openCredits()">?</button>
 
-            <div class="menu-buttons">
-                <button class="btn btn-start" onclick="startGame()">START</button>
-                <button class="btn btn-wishboard" onclick="alert('Opening Wishboard...')">Wishboard</button>
-            </div>
-        </div>
-
-        <!-- Story Screen (Hidden until game starts) -->
-        <div id="storyScreen" class="story-screen hidden">
-            <!-- Background -->
-            <div class="story-bg"></div>
-
-            <!-- Character -->
-            <div class="character-container">
-                <img src="https://img2.pic.in.th/-182_20260411164509.md.png" alt="Character" class="character-image">
-            </div>
-
-            <!-- Narration Section -->
-            <div id="narrationSection" class="narration-section hidden">
-                <div class="narration-text" id="narrationText">This is a narration section.</div>
-            </div>
-
-            <!-- Dialogue Section -->
-            <div id="dialogueSection" class="dialogue-section hidden">
-                <div class="character-name" id="characterName">Character Name</div>
-                <div class="dialogue-box">
-                    <div class="dialogue-text" id="dialogueText">This is a dialogue.</div>
-                </div>
-            </div>
-
-            <!-- Next Button -->
-            <button id="nextButton" class="next-btn hidden" onclick="continueToDialogue()">Continue →</button>
-
-            <!-- Choices Section -->
-            <div id="choicesSection" class="choices-section hidden">
-                <button class="choice-btn" onclick="makeChoice(1)">Choice 1</button>
-                <button class="choice-btn" onclick="makeChoice(2)">Choice 2</button>
-                <button class="choice-btn" onclick="makeChoice(3)">Choice 3</button>
-            </div>
-        </div>
-
-        <div id="creditOverlay" class="overlay" onclick="closeOverlay(event)">
-            <div class="credit-card">
-                <h2>Special Thanks</h2>
-                <div class="credit-content">
-                    <p><b>Head Project:</b> Your Name</p>
-                    <p><b>Character Artist:</b> Artist Name</p>
-                    <p><b>Background Artist:</b> Artist Name</p>
-                    <p><b>Developer:</b> Your Name</p>
-                    <p><b>Music:</b> Lo-fi Coffee Shop</p>
-                </div>
-                <button class="close-btn" onclick="toggleCredit()">Close</button>
-            </div>
-        </div>
+  <div class="center">
+    <div class="logo">
+      <div class="icon">☕</div>
+      <h1>Gentle Steam, <span>Dearly Belov'd</span></h1>
+      <p>ละอองไออุ่น ถึงคุณคนโปรด</p>
     </div>
 
-    <script src="script.js"></script>
+    <div class="menu-buttons">
+      <button class="btn primary" onclick="openStartMenu()">เริ่มเกม</button>
+      <button class="btn secondary" onclick="openMessages()">ดูหน้ารวมคำอวยพร</button>
+    </div>
+  </div>
+</div>
+
+<!-- START POPUP -->
+<div class="modal" id="startMenu">
+  <div class="card">
+    <button onclick="closeStartMenu()">✕</button>
+    <button class="option">New Game</button>
+    <button class="option">Continue</button>
+    <button class="option">Settings</button>
+  </div>
+</div>
+
+<!-- MESSAGE LIST -->
+<div class="screen" id="messages">
+  <div class="topbar">
+    <button onclick="goHome()">←</button>
+    <h2>คำอวยพร</h2>
+  </div>
+
+  <div class="grid">
+    <div class="message-card" onclick="openDetail()">💌 ขอให้วันนี้อบอุ่นเหมือนกาแฟแก้วโปรด</div>
+    <div class="message-card">💌 ขอบคุณที่อยู่ตรงนี้เสมอ</div>
+    <div class="message-card">💌 หวังว่าจะยิ้มได้ในทุกวันนะ</div>
+  </div>
+</div>
+
+<!-- MESSAGE DETAIL -->
+<div class="screen" id="detail">
+  <div class="topbar">
+    <button onclick="openMessages()">←</button>
+  </div>
+
+  <div class="detail-card">
+    ขอให้วันนี้ของคุณเต็มไปด้วยความอบอุ่น เหมือนไอจากกาแฟในยามเช้า ☕
+  </div>
+</div>
+
+<!-- CREDITS -->
+<div class="screen" id="credits">
+  <div class="topbar">
+    <button onclick="goHome()">←</button>
+  </div>
+
+  <div class="credits">
+    <h2>Credits</h2>
+    <p>Design & Story: You</p>
+    <p>UI: Cozy Minimal Style</p>
+    <p>Font: Fahkwang</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
